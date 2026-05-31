@@ -2,19 +2,25 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
+import { useRef } from "react";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
 export default function Hero() {
-  const { scrollY } = useScroll();
-  const textY       = useTransform(scrollY, [0, 500], [0, -60]);
-  const textOpacity = useTransform(scrollY, [0, 400], [1, 0]);
-  const phoneY      = useTransform(scrollY, [0, 600], [0, -30]);
-  // 폰도 텍스트보다 조금 늦게 페이드아웃 — 섹션 경계 삐져나옴 방지
-  const phoneOpacity = useTransform(scrollY, [100, 500], [1, 0]);
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end start"],
+  });
+  const textY = useTransform(scrollYProgress, [0, 1], [0, -60]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.48, 0.88], [1, 1, 0]);
+  const phoneY = useTransform(scrollYProgress, [0, 1], [0, -30]);
+  const phoneOpacity = useTransform(scrollYProgress, [0, 0.52, 0.9], [1, 1, 0]);
+  const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.25, 0.55], [1, 1, 0]);
 
   return (
     <section
+      ref={sectionRef}
       className="relative min-h-screen flex flex-col justify-center overflow-hidden"
       style={{ backgroundColor: "#588DFF" }}
     >
@@ -161,7 +167,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2, duration: 0.8, ease }}
             className="flex-shrink-0 block lg:hidden"
-            style={{ opacity: phoneOpacity }}
+            style={{ y: phoneY, opacity: phoneOpacity }}
           >
             <div className="float" style={{ filter: "drop-shadow(0 36px 72px rgba(30,70,200,0.38))" }}>
               <Image
@@ -182,7 +188,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        style={{ opacity: useTransform(scrollY, [0, 200], [1, 0]) }}
+        style={{ opacity: scrollIndicatorOpacity }}
         className="absolute bottom-24 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5"
       >
         <span className="text-[11px] tracking-widest uppercase" style={{ color: "rgba(255,255,255,0.4)" }}>scroll</span>
