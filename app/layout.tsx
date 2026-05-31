@@ -18,10 +18,10 @@ export const metadata: Metadata = {
     locale: "ko_KR",
     images: [
       {
-        url: "/mainlogo.png",
-        width: 473,
-        height: 473,
-        alt: "MEMME",
+        url: "/ogImage.png",
+        width: 1200,
+        height: 630,
+        alt: "MEMME — 생각나면 그냥 던져",
       },
     ],
   },
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "MEMME — 생각나면 그냥 던져",
     description: "카톡 보내듯 메모하고, 나중에 한번에 정리.",
-    images: ["/mainlogo.png"],
+    images: ["/ogImage.png"],
   },
 };
 
