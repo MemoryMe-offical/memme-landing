@@ -2,14 +2,34 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://memme-landing.kro.kr"),
   title: "MEMME — 생각나면 그냥 던져",
   description: "카톡 보내듯 메모하고, 나중에 한번에 정리. 흩어진 생각을 모아주는 개인 메모 앱.",
   icons: { icon: "/mainlogo.png" },
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "MEMME — 생각나면 그냥 던져",
     description: "카톡 보내듯 메모하고, 나중에 한번에 정리.",
+    url: "/",
+    siteName: "MEMME",
     type: "website",
-    images: [{ url: "/mainlogo.png" }],
+    locale: "ko_KR",
+    images: [
+      {
+        url: "/mainlogo.png",
+        width: 473,
+        height: 473,
+        alt: "MEMME",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MEMME — 생각나면 그냥 던져",
+    description: "카톡 보내듯 메모하고, 나중에 한번에 정리.",
+    images: ["/mainlogo.png"],
   },
 };
 
