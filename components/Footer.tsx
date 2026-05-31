@@ -14,7 +14,7 @@ export default function Footer() {
           문의하기 →
         </a>
 
-        <p className="text-[11px]" style={{ color: "#94A3B8" }}>© 2025 MemoryMe. All rights reserved.</p>
+        <p className="text-[11px]" style={{ color: "#94A3B8" }}>© 2026 MemoryMe. All rights reserved.</p>
       </div>
     </footer>
   );
