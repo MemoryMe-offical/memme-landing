@@ -13,7 +13,7 @@ const features = [
       </svg>
     ),
     title: "메모",
-    desc: "생각난 순간 바로 적어요. 제목도 분류도 없이, 나에게 메시지 보내듯 가볍게.",
+    desc: "떠오른 생각을 바로 남겨요. 제목이나 분류는 나중에 해도 괜찮아요.",
   },
   {
     icon: (
@@ -22,7 +22,7 @@ const features = [
       </svg>
     ),
     title: "보드",
-    desc: "관련된 메모를 롱프레스 하나로 보드로 변환. 주제별로 묶어 프로젝트처럼 관리해요.",
+    desc: "흩어진 메모를 주제별로 묶어요. 아이디어가 조금씩 형태를 갖춰요.",
   },
   {
     icon: (
@@ -31,7 +31,7 @@ const features = [
       </svg>
     ),
     title: "노트",
-    desc: "텍스트, 이미지, 영상, 파일, 링크 — 모든 미디어를 노트 하나에 담아 보드에 정리해요.",
+    desc: "글, 이미지, 영상, 링크를 한곳에 담아요. 자료 찾는 시간이 줄어들어요.",
   },
   {
     icon: (
@@ -40,7 +40,7 @@ const features = [
       </svg>
     ),
     title: "인박스",
-    desc: "유튜브·브라우저에서 공유 버튼 하나면 인박스에 자동 보관. 타임라인을 어지럽히지 않아요.",
+    desc: "유튜브나 브라우저에서 바로 보내요. 일단 모아두고 나중에 정리해요.",
   },
   {
     icon: (
@@ -49,7 +49,7 @@ const features = [
       </svg>
     ),
     title: "해시태그",
-    desc: "보드에 #태그를 달아두면 필터 한 번으로 관련 보드만 모아봐요.",
+    desc: "태그를 달아두면 다시 찾기 쉬워요. 비슷한 보드만 빠르게 모아볼 수 있어요.",
   },
   {
     icon: (
@@ -58,7 +58,7 @@ const features = [
       </svg>
     ),
     title: "북마크",
-    desc: "자주 보는 메모·보드를 북마크하면 사이드메뉴에서 바로 꺼내볼 수 있어요.",
+    desc: "자주 보는 메모와 보드는 따로 표시해요. 필요한 순간 바로 꺼내볼 수 있어요.",
   },
 ];
 
@@ -115,7 +115,12 @@ export default function Features() {
                 {f.icon}
               </div>
               <h3 className="text-[15px] font-bold mb-1.5" style={{ color: "#0F172A" }}>{f.title}</h3>
-              <p className="text-[13px] leading-relaxed" style={{ color: "#64748B" }}>{f.desc}</p>
+              <p
+                className="text-[13px] leading-relaxed"
+                style={{ color: "#64748B", wordBreak: "keep-all", overflowWrap: "break-word" }}
+              >
+                {f.desc}
+              </p>
             </motion.div>
           ))}
         </div>
