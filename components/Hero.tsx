@@ -13,9 +13,9 @@ export default function Hero() {
     offset: ["start start", "end start"],
   });
   const textY = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const textOpacity = useTransform(scrollYProgress, [0, 0.48, 0.88], [1, 1, 0]);
+  const textOpacity = useTransform(scrollYProgress, [0, 0.34, 0.76], [1, 1, 0]);
   const phoneY = useTransform(scrollYProgress, [0, 1], [0, -30]);
-  const phoneOpacity = useTransform(scrollYProgress, [0, 0.52, 0.9], [1, 1, 0]);
+  const phoneOpacity = useTransform(scrollYProgress, [0, 0.38, 0.78], [1, 1, 0]);
   const scrollIndicatorOpacity = useTransform(scrollYProgress, [0, 0.25, 0.55], [1, 1, 0]);
 
   return (
